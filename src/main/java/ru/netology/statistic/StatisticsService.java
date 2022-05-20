@@ -17,6 +17,33 @@ public class StatisticsService {
         return current_max;
     }
 
+    //Calculate last month number with max income
+    public long findLastMaxIncome(long[] incomes) {
+        int maxIncome = 0;
+        int month = 0;
+        for (long income : incomes) {
+            if (income >= incomes[maxIncome]) {
+                maxIncome = month;
+            }
+            month = month + 1;
+        }
+        return maxIncome + 1;
+    }
+
+    //Calculate last month number with min income
+    public long findLastMinIncome(long[] incomes) {
+        int minIncome = 0;
+        int month = 0;
+        for (long income : incomes) {
+            if (income <= incomes[minIncome]) {
+                minIncome = month;
+            }
+            month = month + 1;
+        }
+        return minIncome + 1;
+    }
+
+
     //Calculate index of min income
     public long findMin(long[] incomes) {
         long current_min = incomes[0];
